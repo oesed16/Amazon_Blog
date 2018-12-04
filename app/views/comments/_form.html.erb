@@ -1,0 +1,18 @@
+<%= form_for ([@post, @post.comments.build]) do |f| %>
+
+    <div>
+        <%= f.label :comment %> 
+        <%= f.text_field :comment %>
+    </div>
+
+     <div>
+        <%= f.submit %>
+    </div>
+<% end %>
+
+<%# Formulario no asociado a ningún modelo (db)
+<%#= form_tag("/search", method: "get") do %>
+<%#= label_tag(:q, "Search for:") %>
+<%#= text_field_tag(:q) %>
+<%#= submit_tag("Search") %>
+<%# end %>

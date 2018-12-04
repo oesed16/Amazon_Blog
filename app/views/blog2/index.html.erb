@@ -1,0 +1,19 @@
+<h1>Texto simple</h1>
+
+<%# Lógica para los scope que van dentro de los modelos %>
+
+<%= Post.published.all.each do |post| %>
+    <table>
+        <tr> <%= post.title %> </tr>
+        <tr> <%= post.content %> </tr>
+    </table>
+<% end %>
+
+<%# Post más populaares %>
+
+<%= Post.popular.each do |post| %>
+    <table>
+        <tr> <%= post.title %> </tr>
+        <tr> <%= post.content %> </tr>
+    </table>
+<% end %>
