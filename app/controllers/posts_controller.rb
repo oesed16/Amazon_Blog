@@ -35,6 +35,16 @@ class PostsController < ApplicationController
     @post.user = current_user #Está asignando un post/posts a un usuario.
 
       if @post.save
+        # Send email to users with new post link 
+        title = @post.title
+        id = @post.id
+        users = User.where(role: "user")
+
+        users.each do |user|
+          user_email = user.email
+          UserNotifierMailer.new_post_notifying_user(user_email, title, id).deliver_now
+        end
+
         redirect_to posts_path, notice: "Post created successfully"
       else
         flash[:alert] = "The register of the post failed, try again"
