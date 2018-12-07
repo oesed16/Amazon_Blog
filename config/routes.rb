@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :subscriptors, only: [:new, :create]
 
+  get 'admin', to: 'admin#index'
+
   # get 'post/index', to: 'posts#index'
   # .....
 

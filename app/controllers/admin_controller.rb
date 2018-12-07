@@ -9,7 +9,4 @@ class AdminController < ApplicationController
   def index
     # render layout: "admin" Sólo afecta ésta vista
   end
-
-  def show
-  end
 end
