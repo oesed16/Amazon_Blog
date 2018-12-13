@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_action :is_admin?
 
   # layout "admin" Éste layout afecta a todas las vistas.
-  layout "admin" #, only[:index, :delete] # O también except, a todas menos a las mencionadas
+  # layout "admin" #, only[:index, :delete] # O también except, a todas menos a las mencionadas
   # layout false, no aplica ningún layout.
 
   def index
@@ -12,6 +12,10 @@ class AdminController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
     @comments = Comment.all.count
     @subscriptors = Subscriptor.all.order(created_at: :desc)
+  end
+
+  def products
+    @products = Product.all.order(created_at: :desc)
   end
 
   private

@@ -7,11 +7,16 @@ Rails.application.routes.draw do
   
   resources :posts do # Es lo mismo que escribir cada una de las rutas asociadas a post.
     resources :comments
+    member do
+      patch :publish # Patch se usa para actualizar, esto crea la ruta publish_post PATCH  /posts/:id/publish(.:format) posts#publish
+    end
   end
 
   resources :subscriptors, only: [:new, :create]
 
   get 'admin', to: 'admin#index'
+  get 'admin/products', to: 'admin#products'
+  resources :products, only: [:new, :create]
 
   # get 'post/index', to: 'posts#index'
   # .....
