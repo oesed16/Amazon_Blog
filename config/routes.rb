@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :subscriptors, only: [:new, :create]
+  resources :subscriptors # only: [:new, :create]
 
   get 'admin', to: 'admin#index'
   get 'admin/products', to: 'admin#products'
