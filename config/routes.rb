@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admin#index'
   get 'admin/products', to: 'admin#products'
-  resources :products, only: [:new, :create]
+  resources :products #, only: [:new, :create]
 
   # get 'post/index', to: 'posts#index'
   # .....
