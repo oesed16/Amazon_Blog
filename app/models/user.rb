@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   # Este código es para setear los roles
   enum role: [ :user, :admin ]
