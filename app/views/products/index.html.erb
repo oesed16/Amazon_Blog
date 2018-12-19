@@ -1,0 +1,12 @@
+<% @products.each do |product|%>
+    <p>
+        <%= product.name %> | <%= number_to_currency(product.price) %>
+    </p>
+
+    <%= form_for @order_item do |f| %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity %>
+        <%= f.submit "Add to Cart" %>
+    <% end %>
+
+<% end %>
