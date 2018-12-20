@@ -1,12 +1,17 @@
-<% @products.each do |product|%>
-    <p>
-        <%= product.name %> | <%= number_to_currency(product.price) %>
-    </p>
+<h3 class="text-center">Product for sale</h3>
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <% @products.each do |product|%>
+            <p>
+                <%= product.name %> | <%= number_to_currency(product.price) %>
+            </p>
 
-    <%= form_for @order_item do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity %>
-        <%= f.submit "Add to Cart" %>
-    <% end %>
+            <%= form_for @order_item do |f| %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.number_field :quantity %>
+                <%= f.submit "Add to Cart" %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
 
-<% end %>
