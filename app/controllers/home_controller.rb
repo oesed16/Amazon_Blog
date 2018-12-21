@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @products = Product.all
-    @order_item = current_order.order_items.new
-    
+    @products = Product.all    
     #render html:"<h1>Hola mundo</h1>".html_safe #Otra forma de renderizar html. 
   end
   # def hello

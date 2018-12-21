@@ -1,17 +1,58 @@
-<h3 class="text-center">Product for sale</h3>
-<div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <% @products.each do |product|%>
-            <p>
-                <%= product.name %> | <%= number_to_currency(product.price) %>
-            </p>
+<body>
 
-            <%= form_for @order_item do |f| %>
-                <%= f.hidden_field :product_id, value: product.id %>
-                <%= f.number_field :quantity %>
-                <%= f.submit "Add to Cart" %>
+    <main role="main">
+
+      <%= render "layouts/alerts" %>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+
+            <% @products.each do |product| %>
+
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+
+                  <%= image_tag("cart.svg", class: "card-img-top") %>
+
+                  <div class="card-body">
+                    <p class="card-text"><%= product.name %> | <%= number_to_currency(product.price) %></p>
+
+
+   
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+
+                          <%= link_to "View Details", product_path(product), class: "btn btn-info" %>
+
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             <% end %>
-        <% end %>
-    </div>
-</div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+
+  </body>
 
